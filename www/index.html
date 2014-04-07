@@ -23,19 +23,62 @@
         <meta name="format-detection" content="telephone=no" />
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" type="text/css" href="css/index.css" />
-        <title>Hello World</title>
-    </head>
-    <body>
-        <div class="app">
-            <h1>PhoneGap</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
-            </div>
-        </div>
+        <!--<link rel="stylesheet" type="text/css" href="css/index.css" />-->
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
+       <!-- <link rel="stylesheet" href="css/Contacts44.min.css" />
+        <link rel="stylesheet" href="css/jquery.mobile.icons.min.css" />
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile.structure-1.4.2.min.css" /> -->
         <script type="text/javascript" src="phonegap.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
+        <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+        <title>Contacts44</title>
+    </head>
+    <body>
+        <!-- Start of first page -->
+        <div data-role="page" data-theme="b" id="addPage">
+            
+            <div data-role="header">
+                <h1>Add or Search for a Contact</h1>
+            </div><!-- /header -->
+            
+            <div role="main" class="ui-content">
+                <label for="textarea">Add a new Contact</label>
+                <textarea cols="40" rows="8" name="textarea" id="textarea" placeholder="Eg: David 987654321 david@email.com java developer bangalore potential candidate"></textarea>
+                <a href="#" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-left ui-icon-plus">Save</a>
+                
+                <br/><br/>
+                
+                <label for="search">Search your Contacts</label>
+                <input type="search" name="password" id="search" value="" placeholder="Eg: java bangalore candidate">
+                <a href="#" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-left ui-icon-search">Search</a>
+                
+                <p>I'm first in the source order so I'm shown as the page.</p>
+                <p>View internal page called <a href="#searchPage">bar</a></p>
+            </div><!-- /content -->
+            
+            <div data-role="footer">
+                <h4>Contacts44 - Your superfast Contacts book!</h4>
+            </div><!-- /footer -->
+        </div><!-- /page -->
+        
+        <!-- Start of second page -->
+        <div data-role="page" data-theme="b" id="searchPage">
+            
+            <div data-role="header">
+                <h1>Search Contact</h1>
+            </div><!-- /header -->
+            
+            <div role="main" class="ui-content">
+                <p>I'm the second in the source order so I'm hidden when the page loads. I'm just shown if a link that references my id is beeing clicked.</p>
+                <p><a href="#addPage">Back to foo</a></p>
+            </div><!-- /content -->
+            
+            <div data-role="footer">
+                <h4>CContacts44 - Your superfast Contacts book!</h4>
+            </div><!-- /footer -->
+        </div><!-- /page -->
+        
         <script type="text/javascript">
             app.initialize();
         </script>
