@@ -37,31 +37,35 @@
     </head>
     <body>
         <!-- Start of first page -->
-        <div data-role="page" data-theme="b" id="addPage">
+        <div data-role="page" data-theme="b" id="contactsPage">
             
             <div data-role="header" data-position="fixed">
                 <img src="img/logo.png" height="35" width = "35" class="ui-btn-left"></img>
-                <h1> <font color="snow">Contacts44</font></h1>
+                <h1> <font color="FFCC33">Contacts44</font></h1>
                 <a href="#" data-icon="gear" class="ui-btn-right">Options</a>
-                <div data-role="navbar">
+                <div data-role="navbar" data-iconpos="left">
                     <ul>
-                        <li><a href="#">Contacts</a></li>
-                        <li><a href="#">Login/Logout</a></li>
-                        <li><a href="#">Your Profile</a></li>
+                        <li><a href="#contactsPage" data-icon="user" class="ui-btn-active">Contacts</a></li>
+                        <li><a href="#loginPage" data-icon="power">Login/Logout</a></li>
+                        <li><a href="#profilePage" data-icon="star">Your Profile</a></li>
                     </ul>
                 </div><!-- /navbar -->
                 <a href="#" class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-gear">Options</a>
             </div><!-- /header -->
             
             <div role="main" class="ui-content">
-                <label for="textarea">Add a new Contact</label>
-                <textarea cols="40" rows="8" name="textarea" id="textarea" placeholder="Eg: David 987654321 david@email.com java developer bangalore potential candidate male"></textarea>
+                <label for="textarea"><strong><font color="FFCC33">Add a new Contact</font></strong></label>
+                <textarea cols="40" rows="8" name="textarea" id="newcontact" placeholder="Eg: David 9876543210 david@email.com java developer bangalore potential candidate young male"></textarea>
                 <a href="#" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-left ui-icon-plus">Save</a>
                 
                 <br/><br/>
                 
-                <label for="search">Search your Contacts</label>
-                <input type="search" name="password" id="search" value="" placeholder="Eg: java bangalore candidate">
+                <label for="search"><strong><font color="FFCC33">Search Contacts</font></strong></label>
+                <input type="search" name="password" id="searchcontact" value="" placeholder="Eg: java candidate bangalore"></input>
+                <fieldset data-role="controlgroup">
+                    <input type="checkbox" name="checkbox-1a" id="checkbox-1a" checked="">
+                    <label for="checkbox-1a"><small>Search only my contacts</small></label>
+                </fieldset>
                 <a href="#" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-left ui-icon-search">Search</a>
                 
             </div><!-- /content -->
@@ -72,19 +76,71 @@
         </div><!-- /page -->
         
         <!-- Start of second page -->
-        <div data-role="page" data-theme="b" id="searchPage">
+        <div data-role="page" data-theme="b" id="loginPage">
             
-            <div data-role="header">
-                <h1>Search Contact</h1>
+            <div data-role="header" data-position="fixed">
+                <img src="img/logo.png" height="35" width = "35" class="ui-btn-left"></img>
+                <h1> <font color="FFCC33">Contacts44</font></h1>
+                <a href="#" data-icon="gear" class="ui-btn-right">Options</a>
+                <div data-role="navbar" data-iconpos="left">
+                    <ul>
+                        <li><a href="#contactsPage" data-icon="user">Contacts</a></li>
+                        <li><a href="#loginPage" data-icon="power" class="ui-btn-active">Login/Logout</a></li>
+                        <li><a href="#profilePage" data-icon="star">Your Profile</a></li>
+                    </ul>
+                </div><!-- /navbar -->
+                <a href="#" class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-gear">Options</a>
             </div><!-- /header -->
             
             <div role="main" class="ui-content">
-                <p>I'm the second in the source order so I'm hidden when the page loads. I'm just shown if a link that references my id is beeing clicked.</p>
-                <p><a href="#addPage">Back to foo</a></p>
+                <label for="text-basic"><strong><font color="FFCC33">Username</font></strong></label>
+                <input type="text" name="text-basic" id="username" value="">
+                <label for="password"><strong><font color="FFCC33">Password</font></strong></label>
+                <input type="password" name="password" id="password" value="" autocomplete="off">
+                <label for="text-basic">Optional email: (if new user signup, and you need password recovery)</label>
+                <input type="text" name="text-basic" id="email" value="">
+                <fieldset data-role="controlgroup">
+                    <input type="checkbox" name="checkbox-2a" id="checkbox-2a">
+                    <label for="checkbox-2a"><small>Signup if user not exists</small></label>
+                </fieldset>
+                <a href="#" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-left ui-icon-power">Login</a>
+
+                
             </div><!-- /content -->
             
-            <div data-role="footer">
-                <h4>Contacts44 - Your superfast Contacts book!</h4>
+            <div data-role="footer" data-position="fixed">
+                <h4><a href="http://www.contcts44.com" style="text-decoration: none">www.contacts44.com</a></h4>
+            </div><!-- /footer -->
+        </div><!-- /page -->
+        
+        <!-- Start of third page -->
+        <div data-role="page" data-theme="b" id="profilePage">
+            
+            <div data-role="header" data-position="fixed">
+                <img src="img/logo.png" height="35" width = "35" class="ui-btn-left"></img>
+                <h1> <font color="FFCC33">Contacts44</font></h1>
+                <a href="#" data-icon="gear" class="ui-btn-right">Options</a>
+                <div data-role="navbar" data-iconpos="left">
+                    <ul>
+                        <li><a href="#contactsPage" data-icon="user">Contacts</a></li>
+                        <li><a href="#loginPage" data-icon="power">Login/Logout</a></li>
+                        <li><a href="#profilePage" data-icon="star" class="ui-btn-active">Your Profile</a></li>
+                    </ul>
+                </div><!-- /navbar -->
+                <a href="#" class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-gear">Options</a>
+            </div><!-- /header -->
+            
+            <div role="main" class="ui-content">
+                <label><strong><font color="FFCC33">Username:</font></strong> abcdefg</label>
+                <label for="text-basic"><strong><font color="FFCC33">Email</font></strong></label>
+                <input type="text" name="text-basic" id="useremail" value="">
+                <label><strong><font color="FFCC33">Tags</font></strong></label>
+                <textarea cols="40" rows="8" name="textarea" id="newcontact">Steven Speilberg movies director steve@someemail.com steve@anotheremail.com www.ian.com charity 50yrs 1234567890 united states</textarea>
+                <a href="#" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-left ui-icon-action">Update</a>
+            </div><!-- /content -->
+            
+            <div data-role="footer" data-position="fixed">
+                <h4><a href="http://www.contcts44.com" style="text-decoration: none">www.contacts44.com</a></h4>
             </div><!-- /footer -->
         </div><!-- /page -->
         
