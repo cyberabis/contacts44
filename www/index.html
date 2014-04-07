@@ -38,8 +38,18 @@
         <!-- Start of first page -->
         <div data-role="page" data-theme="b" id="addPage">
             
-            <div data-role="header">
-                <h1><font color="snow">Add or Search for a Contact</font></h1>
+            <div data-role="header" data-position="fixed">
+                <img src="img/logo.png" height="35" width = "35" class="ui-btn-left"></img>
+                <h1> <font color="snow">Contacts44</font></h1>
+                <a href="#" data-icon="gear" class="ui-btn-right">Options</a>
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="#">Contacts</a></li>
+                        <li><a href="#">Login/Logout</a></li>
+                        <li><a href="#">Your Profile</a></li>
+                    </ul>
+                </div><!-- /navbar -->
+                <a href="#" class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-gear">Options</a>
             </div><!-- /header -->
             
             <div role="main" class="ui-content">
@@ -53,12 +63,10 @@
                 <input type="search" name="password" id="search" value="" placeholder="Eg: java bangalore candidate">
                 <a href="#" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-left ui-icon-search">Search</a>
                 
-                <p>I'm first in the source order so I'm shown as the page.</p>
-                <p>View internal page called <a href="#searchPage">bar</a></p>
             </div><!-- /content -->
             
-            <div data-role="footer">
-                <h4><a href="http://www.contcts44.com">www.contacts44.com</a> - Your superfast Contacts book!</h4>
+            <div data-role="footer" data-position="fixed">
+                <h4><a href="http://www.contcts44.com" style="text-decoration: none">www.contacts44.com</a></h4>
             </div><!-- /footer -->
         </div><!-- /page -->
         
