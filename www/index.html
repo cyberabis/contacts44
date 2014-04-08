@@ -151,6 +151,12 @@
         
         <script type="text/javascript">
             app.initialize();
+            $(document).on("mobileinit", function(){
+                           //apply overrides here
+                           $.mobile.allowCrossDomainPages = true;
+                           $.support.cors = true;
+                           $.mobile.ajaxEnabled = true;
+                           });
             $(document).ready(function() {
                 connection_check();
             });
