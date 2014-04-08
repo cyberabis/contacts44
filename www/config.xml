@@ -50,12 +50,12 @@
     <!--
         <gap:plugin name="Example" />
         A list of available plugins are available at https://build.phonegap.com/docs/plugins
-    -->
+    
     <gap:plugin name="Device" value="org.apache.cordova.core.Device"/>
     
     <gap:plugin name="File" value="org.apache.cordova.core.FileUtils" />
     <gap:plugin name="FileTransfer" value="org.apache.cordova.core.FileTransfer" />
-    <!--
+    
     <gap:plugin name="Contacts" value="org.apache.cordova.core.ContactManager" />
      -->
     
