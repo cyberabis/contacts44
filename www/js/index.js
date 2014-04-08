@@ -53,7 +53,7 @@ var userid;
 function connection_check() {
     
     $.ajax({
-                url: "http://192.168.2.2:9000/connectionTest",
+                url: "http://contacts44.herokuapp.com/connectionTest",
                 type: "GET",
                 success: function (ajax_response) {
                     userid = ajax_response.user;
@@ -93,7 +93,7 @@ function user_login() {
                                                   }));
     
     $.ajax({
-           url: "http://192.168.2.2:9000/login",
+           url: "http://contacts44.herokuapp.com/login",
            type: "POST",
            contentType: "application/json",
            data: JSON.stringify({
@@ -126,7 +126,7 @@ function user_login() {
 function user_logout() {
     
     $.ajax({
-           url: "http://192.168.2.2:9000/logout",
+           url: "http://contacts44.herokuapp.com/logout",
            type: "GET",
            success: function (ajax_response) {
                 userid = null;
