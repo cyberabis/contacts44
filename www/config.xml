@@ -55,9 +55,10 @@
     
     <gap:plugin name="File" value="org.apache.cordova.core.FileUtils" />
     <gap:plugin name="FileTransfer" value="org.apache.cordova.core.FileTransfer" />
-    
+    <!--
     <gap:plugin name="Contacts" value="org.apache.cordova.core.ContactManager" />
-
+     -->
+    
     <!-- Define app icon for each platform. -->
     <icon src="icon.png" />
     <icon src="res/icon/android/icon-36-ldpi.png"   gap:platform="android"    gap:density="ldpi" />
