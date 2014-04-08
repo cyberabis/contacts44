@@ -26,9 +26,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!--<link rel="stylesheet" type="text/css" href="css/index.css" />-->
         <link rel="stylesheet" href="css/jquery.mobile-1.4.2.min.css" />
-       <!-- <link rel="stylesheet" href="css/Contacts44.min.css" />
-        <link rel="stylesheet" href="css/jquery.mobile.icons.min.css" />
-        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile.structure-1.4.2.min.css" /> -->
         <script type="text/javascript" src="phonegap.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script src="js/jquery.js"></script>
@@ -45,9 +42,9 @@
                 <a href="#" data-icon="gear" class="ui-btn-right">Options</a>
                 <div data-role="navbar" data-iconpos="left">
                     <ul>
-                        <li><a href="#contactsPage" data-icon="user" class="ui-btn-active">Contacts</a></li>
-                        <li><a href="#loginPage" data-icon="power">Login/Logout</a></li>
-                        <li><a href="#profilePage" data-icon="star">Your Profile</a></li>
+                        <li><a href="#contactsPage" data-icon="user" class="ui-btn-active ui-state-persist" id = "nav11">Contacts</a></li>
+                        <li><a href="#loginPage" data-icon="power" id="nav12">Login/Logout</a></li>
+                        <li><a href="#profilePage" data-icon="star" id = "nav13">Your Profile</a></li>
                     </ul>
                 </div><!-- /navbar -->
                 <a href="#" class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-gear">Options</a>
@@ -71,7 +68,7 @@
             </div><!-- /content -->
             
             <div data-role="footer" data-position="fixed">
-                <h4><a href="http://www.contcts44.com" style="text-decoration: none">www.contacts44.com</a></h4>
+                <h4><a href="http://www.contacts44.herokuapp.com" style="text-decoration: none">www.contacts44.herokuapp.com</a></h4>
             </div><!-- /footer -->
         </div><!-- /page -->
         
@@ -84,15 +81,19 @@
                 <a href="#" data-icon="gear" class="ui-btn-right">Options</a>
                 <div data-role="navbar" data-iconpos="left">
                     <ul>
-                        <li><a href="#contactsPage" data-icon="user">Contacts</a></li>
-                        <li><a href="#loginPage" data-icon="power" class="ui-btn-active">Login/Logout</a></li>
-                        <li><a href="#profilePage" data-icon="star">Your Profile</a></li>
+                        <li><a href="#contactsPage" data-icon="user" id="nav21">Contacts</a></li>
+                        <li><a href="#loginPage" data-icon="power" class="ui-btn-active ui-state-persist" id="nav22">Login/Logout</a></li>
+                        <li><a href="#profilePage" data-icon="star" id="nav23">Your Profile</a></li>
                     </ul>
                 </div><!-- /navbar -->
                 <a href="#" class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-gear">Options</a>
             </div><!-- /header -->
             
             <div role="main" class="ui-content">
+                <div id="logindiv">
+                    <div id="loginmsgdiv">
+                        <font color="red"><small> Login failed! </small></font><br/><br/>
+                    </div>
                 <label for="text-basic"><strong><font color="FFCC33">Username</font></strong></label>
                 <input type="text" name="text-basic" id="username" value="">
                 <label for="password"><strong><font color="FFCC33">Password</font></strong></label>
@@ -103,13 +104,17 @@
                     <input type="checkbox" name="checkbox-2a" id="checkbox-2a">
                     <label for="checkbox-2a"><small>Signup if user not exists</small></label>
                 </fieldset>
-                <a href="#" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-left ui-icon-power">Login</a>
-
+                <a href="#" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-left ui-icon-power" onClick="user_login();">Login</a>
+                </div>
+                
+                <div id="logoutdiv">
+                    <a href="#" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-left ui-icon-power" onClick="user_logout();">Logout</a>
+                </div>
                 
             </div><!-- /content -->
             
             <div data-role="footer" data-position="fixed">
-                <h4><a href="http://www.contcts44.com" style="text-decoration: none">www.contacts44.com</a></h4>
+                <h4><a href="http://www.contacts44.herokuapp.com" style="text-decoration: none">www.contacts44.herokuapp.com</a></h4>
             </div><!-- /footer -->
         </div><!-- /page -->
         
@@ -122,9 +127,9 @@
                 <a href="#" data-icon="gear" class="ui-btn-right">Options</a>
                 <div data-role="navbar" data-iconpos="left">
                     <ul>
-                        <li><a href="#contactsPage" data-icon="user">Contacts</a></li>
-                        <li><a href="#loginPage" data-icon="power">Login/Logout</a></li>
-                        <li><a href="#profilePage" data-icon="star" class="ui-btn-active">Your Profile</a></li>
+                        <li><a href="#contactsPage" data-icon="user" id = "nav31">Contacts</a></li>
+                        <li><a href="#loginPage" data-icon="power" id="nav32">Login/Logout</a></li>
+                        <li><a href="#profilePage" data-icon="star" class="ui-btn-active ui-state-persist" id="nav33">Your Profile</a></li>
                     </ul>
                 </div><!-- /navbar -->
                 <a href="#" class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-gear">Options</a>
@@ -140,12 +145,15 @@
             </div><!-- /content -->
             
             <div data-role="footer" data-position="fixed">
-                <h4><a href="http://www.contcts44.com" style="text-decoration: none">www.contacts44.com</a></h4>
+                <h4><a href="http://www.contacts44.herokuapp.com" style="text-decoration: none">www.contacts44.herokuapp.com</a></h4>
             </div><!-- /footer -->
         </div><!-- /page -->
         
         <script type="text/javascript">
             app.initialize();
+            $(document).ready(function() {
+                connection_check();
+            });
         </script>
     </body>
 </html>

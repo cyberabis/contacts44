@@ -47,3 +47,94 @@ var app = {
         console.log('Received Event: ' + id);
     }
 };
+
+var userid;
+
+function connection_check() {
+    
+    $.ajax({
+                url: "http://192.168.2.2:9000/connectionTest",
+                type: "GET",
+                success: function (ajax_response) {
+                    userid = ajax_response.user;
+                    if ( (userid != null) && (userid !== undefined) ){
+                        console.log("Active user: " + userid);
+                        $('#logindiv').hide();
+                        $('#logoutdiv').show();
+                    }
+                    else {
+                        console.log("Not logged in");
+                        $('#logoutdiv').hide();
+                        $('#logindiv').show();
+                    }
+                    $('#loginmsgdiv').hide();
+                }
+           });
+    
+}
+
+function user_login() {
+    
+    var user = $('#username').val();
+    var password = $('#password').val();
+    var email = $('#email').val();
+    var signup = "no";
+    if($('#checkbox-2a').prop('checked')){
+        signup = "yes";
+    }
+    
+    console.log("Login credentials: " + user + " " + password + " " + email + " " + signup);
+    
+    console.log("Json content: " + JSON.stringify({
+                                                  "userid": user,
+                                                  "password": password,
+                                                  "email": email,
+                                                  "signup": signup
+                                                  }));
+    
+    $.ajax({
+           url: "http://192.168.2.2:9000/login",
+           type: "POST",
+           contentType: "application/json",
+           data: JSON.stringify({
+            "userid": user,
+            "password": password,
+            "email": email,
+            "signup": signup
+           }),
+           success: function (ajax_response) {
+                userid = user;
+                console.log("Active user: " + userid);
+                $('#logindiv').hide();
+                $('#logoutdiv').show();
+                $('#loginmsgdiv').hide();
+           },
+           error: function() {
+                userid = null;
+                console.log("Not logged in");
+                $('#logoutdiv').hide();
+                $('#logindiv').show();
+                $('#username').val("");
+                $('#password').val("");
+                $('#loginmsgdiv').show();
+            }
+           });
+    
+}
+
+
+function user_logout() {
+    
+    $.ajax({
+           url: "http://192.168.2.2:9000/logout",
+           type: "GET",
+           success: function (ajax_response) {
+                userid = null;
+                console.log("Not logged in");
+                $('#logoutdiv').hide();
+                $('#logindiv').show();
+                }
+           });
+    
+}
+
