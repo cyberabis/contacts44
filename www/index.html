@@ -44,7 +44,7 @@
                     <ul>
                         <li><a href="#contactsPage" data-icon="user" class="ui-btn-active ui-state-persist" id = "nav11">Contacts</a></li>
                         <li><a href="#loginPage" data-icon="power" id="nav12">Login/Logout</a></li>
-                        <li><a href="#profilePage" data-icon="star" id = "nav13">Your Profile</a></li>
+                        <li><a href="#profilePage" data-icon="star" id = "nav13" onClick="get_profile();">Your Profile</a></li>
                     </ul>
                 </div><!-- /navbar -->
                 <a href="#" class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-gear">Options</a>
@@ -52,8 +52,8 @@
             
             <div role="main" class="ui-content">
                 <label for="textarea"><strong><font color="FFCC33">Add a new Contact</font></strong></label>
-                <textarea cols="40" rows="8" name="textarea" id="newcontact" placeholder="Eg: David 9876543210 david@email.com java developer bangalore potential candidate young male"></textarea>
-                <a href="#" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-left ui-icon-plus">Add</a>
+                <textarea cols="40" rows="8" name="textarea" id="newcontact" placeholder="Eg: David 9876543210 david@email.com java developer newyork potential candidate young male"></textarea>
+                <a href="#" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-left ui-icon-plus" onClick="contact_save();">Add</a><span id="savemsgdiv"><font color="green"><small> Contact Added! </small></font></span><span id="errormsgdiv"><font color="red"><small> Could not add contact, check if you are logged in and connected. </small></font></span>
                 
                 <br/><br/>
                 
@@ -63,7 +63,12 @@
                     <input type="checkbox" name="checkbox-1a" id="checkbox-1a" checked="">
                     <label for="checkbox-1a"><small>Search only my contacts</small></label>
                 </fieldset>
-                <a href="#" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-left ui-icon-search">Search</a>
+                <a href="#" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-left ui-icon-search" onClick="contact_search();">Search</a><span id="searchmsgdiv"><font color="red"><small> Could not search, check if you are logged in and connected. </small></font></span>
+                <div id="searchresults">
+                    <ol data-role="listview" data-inset="true" id="olist">
+                        
+                    </ol>
+                </div>
                 
             </div><!-- /content -->
             
@@ -83,7 +88,7 @@
                     <ul>
                         <li><a href="#contactsPage" data-icon="user" id="nav21">Contacts</a></li>
                         <li><a href="#loginPage" data-icon="power" class="ui-btn-active ui-state-persist" id="nav22">Login/Logout</a></li>
-                        <li><a href="#profilePage" data-icon="star" id="nav23">Your Profile</a></li>
+                        <li><a href="#profilePage" data-icon="star" id="nav23" onClick="get_profile();">Your Profile</a></li>
                     </ul>
                 </div><!-- /navbar -->
                 <a href="#" class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-gear">Options</a>
@@ -91,9 +96,7 @@
             
             <div role="main" class="ui-content">
                 <div id="logindiv">
-                    <div id="loginmsgdiv">
-                        <font color="red"><small> Login failed! </small></font><br/><br/>
-                    </div>
+                    
                 <label for="text-basic"><strong><font color="FFCC33">Username</font></strong></label>
                 <input type="text" name="text-basic" id="username" value="">
                 <label for="password"><strong><font color="FFCC33">Password</font></strong></label>
@@ -104,10 +107,11 @@
                     <input type="checkbox" name="checkbox-2a" id="checkbox-2a">
                     <label for="checkbox-2a"><small>Signup if user not exists</small></label>
                 </fieldset>
-                <a href="#" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-left ui-icon-power" onClick="user_login();">Login</a>
+                <a href="#" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-left ui-icon-power" onClick="user_login();">Login</a> <span id="loginmsgdiv"><font color="red"><small> Login failed, please check credentials and internet connectivity. </small></font><br/><br/></span>
                 </div>
                 
                 <div id="logoutdiv">
+                    <span><font color="green"><small> You are logged in! </small></font></span><br/>
                     <a href="#" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-left ui-icon-power" onClick="user_logout();">Logout</a>
                 </div>
                 
@@ -129,19 +133,26 @@
                     <ul>
                         <li><a href="#contactsPage" data-icon="user" id = "nav31">Contacts</a></li>
                         <li><a href="#loginPage" data-icon="power" id="nav32">Login/Logout</a></li>
-                        <li><a href="#profilePage" data-icon="star" class="ui-btn-active ui-state-persist" id="nav33">Your Profile</a></li>
+                        <li><a href="#profilePage" data-icon="star" class="ui-btn-active ui-state-persist" id="nav33" onClick="get_profile();">Your Profile</a></li>
                     </ul>
                 </div><!-- /navbar -->
                 <a href="#" class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-gear">Options</a>
             </div><!-- /header -->
             
             <div role="main" class="ui-content">
-                <label><strong><font color="FFCC33">Username:</font></strong> abcdefg</label>
-                <label for="text-basic"><strong><font color="FFCC33">Email</font></strong></label>
-                <input type="text" name="text-basic" id="useremail" value="">
-                <label><strong><font color="FFCC33">Tags</font></strong></label>
-                <textarea cols="40" rows="8" name="textarea" id="newcontact">Steven Speilberg movies director steve@someemail.com steve@anotheremail.com www.ian.com charity 50yrs 1234567890 united states</textarea>
-                <a href="#" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-left ui-icon-action">Update</a>
+                <div id="profileoffline">
+                    You are not logged in or connected.
+                </div>
+                <div id="profileonline">
+                    <strong><font color="FFCC33">Username: </font></strong><span id="yourusername">your username</span><br/><br/>
+                    <label for="password"><strong><font color="FFCC33">Password</font></strong></label>
+                    <input type="password" name="password" id="userpassword" value="" autocomplete="off">
+                    <label for="text-basic"><strong><font color="FFCC33">Email</font></strong></label>
+                    <input type="text" name="text-basic" id="useremail" value="">
+                    <label><strong><font color="FFCC33">Tags</font></strong></label>
+                    <textarea cols="40" rows="8" name="textarea" id="usercontact"></textarea>
+                    <a href="#" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-left ui-icon-action" id="profileupdate" onClick="user_update();">Update</a><span id="pupdmsgdiv"><font color="green"><small> Profile updated! </small></font></span><span id="pfailmsgdiv"><font color="red"><small> Could not update profile, check if you are connected to internet. </small></font></span>
+                </div>
             </div><!-- /content -->
             
             <div data-role="footer" data-position="fixed">
