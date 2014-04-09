@@ -111,6 +111,16 @@ function user_login() {
         signup = "yes";
     }
     
+    //Clean up variables, as this is fresh login
+    userid = null;
+    g_password = null;
+    g_email = null;
+    g_tags = null;
+    $('#yourusername').text("");
+    $('#userpassword').val("");
+    $('#useremail').val("");
+    $('#usercontact').val("");
+    
     console.log("Login credentials: " + user + " " + password + " " + email + " " + signup);
     
     console.log("Json content: " + JSON.stringify({
@@ -140,7 +150,7 @@ function user_login() {
                 $('#yourusername').text(userid);
                 $('#userpassword').val(g_password);
                 $('#useremail').val(g_email);
-                $('#usertags').val(g_tags);
+                $('#usercontact').val(g_tags);
                 $('#logindiv').hide();
                 $('#logoutdiv').show();
                 $('#loginmsgdiv').hide();
@@ -175,6 +185,17 @@ function user_logout() {
                 $('#logindiv').show();
                 $('#profileoffline').show();
                 $('#profileonline').hide();
+           
+                //Clean up variables, as this is a logout
+                userid = null;
+                g_password = null;
+                g_email = null;
+                g_tags = null;
+                $('#yourusername').text("");
+                $('#userpassword').val("");
+                $('#useremail').val("");
+                $('#usercontact').val("");
+           
                 }
            });
     
@@ -216,14 +237,29 @@ function contact_save() {
 
 function get_profile() {
     console.log('Profile page clicked!');
+    //First clear of everything
+    $('#yourusername').text("");
+    $('#userpassword').val("");
+    $('#useremail').val("");
+    $('#usercontact').val("");
+    
     if ( (userid != null) && (userid !== undefined) ){
     $('#yourusername').text(userid);
     $('#userpassword').val(g_password);
     $('#useremail').val(g_email);
-    $('#usertags').val(g_tags);
+    $('#usercontact').val(g_tags);
     }
     else {
         //Set as not logged in
+        //Clean up variables, as this is fresh login
+        userid = null;
+        g_password = null;
+        g_email = null;
+        g_tags = null;
+        $('#yourusername').text("");
+        $('#userpassword').val("");
+        $('#useremail').val("");
+        $('#usercontact').val("");
     }
 }
 
