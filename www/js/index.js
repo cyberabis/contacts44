@@ -237,17 +237,17 @@ function contact_save() {
 
 function get_profile() {
     console.log('Profile page clicked!');
-    //First clear of everything
-    $('#yourusername').text("");
-    $('#userpassword').val("");
-    $('#useremail').val("");
-    $('#usercontact').val("");
     
     if ( (userid != null) && (userid !== undefined) ){
-    $('#yourusername').text(userid);
-    $('#userpassword').val(g_password);
-    $('#useremail').val(g_email);
-    $('#usercontact').val(g_tags);
+        //First clear of everything
+        //$('#yourusername').text("");
+        //$('#userpassword').val("");
+        //$('#useremail').val("");
+        //$('#usercontact').val("");
+        $('#yourusername').text(userid);
+        $('#userpassword').val(g_password);
+        $('#useremail').val(g_email);
+        $('#usercontact').val(g_tags);
     }
     else {
         //Set as not logged in
