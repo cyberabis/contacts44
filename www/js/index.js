@@ -317,7 +317,7 @@ function contact_search() {
                     var contactid = data[i].contactid;
                     var contact = data[i].contact;
                     console.log("Received search result: " + contact);
-                    htmlout += '<li>'+contact+'</li>';
+                    htmlout += '<li style="white-space:normal;">'+contact+'</li>';
                 }
                 //htmlout += '</ol>'
                 $('#searchresults').show();
