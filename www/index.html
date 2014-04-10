@@ -170,6 +170,9 @@
                            });
             $(document).ready(function() {
                 connection_check();
+                $('.ui-content').on('click', '.ui-input-clear', function(e){
+                    $('#searchresults').hide()
+                });
             });
         </script>
     </body>
